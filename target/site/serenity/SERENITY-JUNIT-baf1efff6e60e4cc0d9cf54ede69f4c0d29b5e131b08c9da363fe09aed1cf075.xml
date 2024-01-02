@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="integration.features.customer.CreateCustomerIT" skipped="0" tests="1" time="6.43" timestamp="2023-12-12 09:22:14"><testcase classname="integration.features.customer.CreateCustomerIT" name="TC_C01 - [Success] Create customer successfully"/></testsuite>

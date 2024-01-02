@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerEntityMapperImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SerenityDemo</a> &gt; <a href="index.source.html" class="el_package">com.edu.serenitydemo.mapper</a> &gt; <span class="el_source">CustomerEntityMapperImpl.java</span></div><h1>CustomerEntityMapperImpl.java</h1><pre class="source lang-java linenums">package com.edu.serenitydemo.mapper;
+
+import com.edu.serenitydemo.dto.request.CustomerRequest;
+import com.edu.serenitydemo.dto.response.CustomerResponse;
+import com.edu.serenitydemo.repository.entity.Customer;
+import javax.annotation.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2023-12-12T16:21:48+0700&quot;,
+    comments = &quot;version: 1.5.3.Final, compiler: javac, environment: Java 1.8.0_292 (AdoptOpenJDK)&quot;
+)
+@Component
+<span class="fc" id="L15">public class CustomerEntityMapperImpl implements CustomerEntityMapper {</span>
+
+    @Override
+    public CustomerRequest requestToEntity(Customer customer) {
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        if ( customer == null ) {</span>
+<span class="nc" id="L20">            return null;</span>
+        }
+
+<span class="nc" id="L23">        CustomerRequest.CustomerRequestBuilder customerRequest = CustomerRequest.builder();</span>
+
+<span class="nc" id="L25">        customerRequest.firstName( customer.getFirstName() );</span>
+<span class="nc" id="L26">        customerRequest.lastName( customer.getLastName() );</span>
+<span class="nc" id="L27">        customerRequest.dob( customer.getDob() );</span>
+<span class="nc" id="L28">        customerRequest.address( customer.getAddress() );</span>
+<span class="nc" id="L29">        customerRequest.city( customer.getCity() );</span>
+<span class="nc" id="L30">        customerRequest.identityType( customer.getIdentityType() );</span>
+<span class="nc" id="L31">        customerRequest.identityNumber( customer.getIdentityNumber() );</span>
+
+<span class="nc" id="L33">        return customerRequest.build();</span>
+    }
+
+    @Override
+    public Customer requestToDto(CustomerRequest customerRequest) {
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if ( customerRequest == null ) {</span>
+<span class="nc" id="L39">            return null;</span>
+        }
+
+<span class="fc" id="L42">        Customer customer = new Customer();</span>
+
+<span class="fc" id="L44">        customer.setFirstName( customerRequest.getFirstName() );</span>
+<span class="fc" id="L45">        customer.setLastName( customerRequest.getLastName() );</span>
+<span class="fc" id="L46">        customer.setDob( customerRequest.getDob() );</span>
+<span class="fc" id="L47">        customer.setAddress( customerRequest.getAddress() );</span>
+<span class="fc" id="L48">        customer.setCity( customerRequest.getCity() );</span>
+<span class="fc" id="L49">        customer.setIdentityType( customerRequest.getIdentityType() );</span>
+<span class="fc" id="L50">        customer.setIdentityNumber( customerRequest.getIdentityNumber() );</span>
+
+<span class="fc" id="L52">        return customer;</span>
+    }
+
+    @Override
+    public CustomerResponse entityToResponse(Customer customer) {
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if ( customer == null ) {</span>
+<span class="nc" id="L58">            return null;</span>
+        }
+
+<span class="nc" id="L61">        CustomerResponse.CustomerResponseBuilder customerResponse = CustomerResponse.builder();</span>
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if ( customer.getId() != null ) {</span>
+<span class="nc" id="L64">            customerResponse.id( customer.getId() );</span>
+        }
+<span class="nc" id="L66">        customerResponse.firstName( customer.getFirstName() );</span>
+<span class="nc" id="L67">        customerResponse.lastName( customer.getLastName() );</span>
+<span class="nc" id="L68">        customerResponse.dob( customer.getDob() );</span>
+<span class="nc" id="L69">        customerResponse.address( customer.getAddress() );</span>
+<span class="nc" id="L70">        customerResponse.city( customer.getCity() );</span>
+<span class="nc" id="L71">        customerResponse.identityType( customer.getIdentityType() );</span>
+<span class="nc" id="L72">        customerResponse.identityNumber( customer.getIdentityNumber() );</span>
+<span class="nc" id="L73">        customerResponse.createdTimestamp( customer.getCreatedTimestamp() );</span>
+<span class="nc" id="L74">        customerResponse.lastUpdatedTimestamp( customer.getLastUpdatedTimestamp() );</span>
+
+<span class="nc" id="L76">        return customerResponse.build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExceptionHandlerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SerenityDemo</a> &gt; <a href="index.source.html" class="el_package">com.edu.serenitydemo.exception</a> &gt; <span class="el_source">ExceptionHandlerController.java</span></div><h1>ExceptionHandlerController.java</h1><pre class="source lang-java linenums">package com.edu.serenitydemo.exception;
+
+
+import com.edu.serenitydemo.constants.ResponseStatusEnum;
+import com.edu.serenitydemo.factory.ResponseFactory;
+import com.edu.serenitydemo.factory.ResponseWrapper;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+
+@ControllerAdvice
+<span class="fc" id="L28">@AllArgsConstructor</span>
+<span class="fc" id="L29">@Slf4j</span>
+public class ExceptionHandlerController {
+    private final ResponseFactory responseFactory;
+
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseBody
+    public ResponseEntity&lt;ResponseWrapper&lt;Object&gt;&gt; handleValidateException(MethodArgumentNotValidException e) {
+<span class="nc" id="L37">        log.error(e.getMessage());</span>
+<span class="nc" id="L38">        List&lt;FieldError&gt; fieldErrors = e.getFieldErrors();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (CollectionUtils.isNotEmpty(fieldErrors)) {</span>
+<span class="nc" id="L40">            Map&lt;String, Set&lt;String&gt;&gt; fieldErrorMap = fieldErrors.stream()</span>
+<span class="nc" id="L41">                    .filter(fieldError -&gt; StringUtils.isNotEmpty(fieldError.getDefaultMessage()))</span>
+<span class="nc" id="L42">                    .collect(Collectors.groupingBy(FieldError::getField,</span>
+                            HashMap::new,
+<span class="nc" id="L44">                            Collectors.mapping(FieldError::getDefaultMessage, Collectors.toSet())));</span>
+<span class="nc" id="L45">            log.error(fieldErrorMap.toString());</span>
+<span class="nc" id="L46">            return responseFactory.error(HttpStatus.BAD_REQUEST,</span>
+                    ResponseStatusEnum.VALIDATE_ERROR,
+                    fieldErrorMap);
+        }
+<span class="nc" id="L50">        log.error(e.getMessage());</span>
+
+<span class="nc" id="L52">        return responseFactory.error(HttpStatus.BAD_REQUEST, ResponseStatusEnum.VALIDATE_ERROR, e.getLocalizedMessage());</span>
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseBody
+    public ResponseEntity&lt;ResponseWrapper&lt;Object&gt;&gt; handleValidateException(BadRequestException e) {
+<span class="nc" id="L58">        log.error(e.getMessage());</span>
+<span class="nc" id="L59">        return responseFactory.error(</span>
+                HttpStatus.BAD_REQUEST,
+<span class="nc" id="L61">                e.getStatusEnum());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

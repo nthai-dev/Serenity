@@ -1,0 +1,17 @@
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/constants/Paths.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/step/common/Stepper.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/step/common/Verifier.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/config/AppContextHolder.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/step/request/CustomerRequestStep.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/BaseIntegrationTest.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/step/post_request/CommonPostRequestStep.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/randomizer/object/BaseRandomizer.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/step/common/Sleeper.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/randomizer/common/RandomizerSupport.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/randomizer/TestRandomizerRegistry.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/features/customer/CreateCustomerIT.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/step/verifier/customer/CustomerDetailResponseVerifier.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/randomizer/common/FixedSizeStringRandomizer.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/randomizer/ObjectMother.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/integration/IntegrationTestConfiguration.java
+/Users/Ascend/Desktop/Study/Serenity/SerenityDemo/src/test/java/randomizer/common/ListElementRandomizer.java
